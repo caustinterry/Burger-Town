@@ -12,27 +12,34 @@ var orm = {
     });
   },
   insertOne: function(tableInput, tableCol, tableVal, cb) {
-    var queryString = "INSERT INTO ?? (??) VALUES (?)";
+    var queryString = "INSERT INTO " + tableInput;
+
+    queryString += " (";
+    queryString += tableCol.toString();
+    queryString += ") ";
+    queryString += "VALUES (?) ";
     // INSERT INTO cats (name,sleepy) VALUES (?,?)
-    connection.query(queryString, [tableInput, tableCol, tableVal], function(
-      err,
-      result
-    ) {
+
+    console.log(queryString);
+    connection.query(queryString, tableVal, function(err, result) {
       if (err) throw err;
       cb(result);
     });
   },
-  updateOne: function(tableInput, colVal, condition) {
-    var queryString = "UPDATE ?? SET ?? WHERE ?? = ?";
-    // UPDATE cats SET sleepy=false WHERE id = 7
-    connection.query(queryString, [tableInput, colVal, condition], function(
-      err,
-      result
-    ) {
-      if (err) throw err;
-    });
+  updateOne: function(tableInput, colVal, condition, cb) {
+    var queryString = "UPDATE " + tableInput;
+    queryString += " SET devoured=!";
+    queryString += colVal.devoured.toString();
+    queryString += " WHERE ";
+    queryString += condition;
 
-    cb(result);
+    console.log(queryString);
+    console.log(colVal);
+    // UPDATE cats SET sleepy=false WHERE id = 7
+    connection.query(queryString, [colVal], function(err, result) {
+      if (err) throw err;
+      cb(result);
+    });
   }
 };
 
