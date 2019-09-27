@@ -1,17 +1,44 @@
-li {
-  padding: 5px;
-  margin: 5px;
-  background: #faebd7;
+.jumbotron {
+  background-color: white;
 }
-
+h1 {
+  text-align: center;
+}
+.container {
+  background-color: bisque;
+}
+.col-sm {
+  background-color: white;
+}
 .label {
   font-weight: bold;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+  height: 283px;
 }
 
 .create-update-form {
   padding: 5px;
   margin: 5px;
   background: aqua;
+}
+
+.change-status {
+  font-size: 12px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 2px;
+  border-radius: 3px;
+  transition: all 0.4s ease 0s;
+}
+.change-status:hover {
+  letter-spacing: 1px;
+  transition: all 0.4s ease 0s;
 }
 
 .form-group {

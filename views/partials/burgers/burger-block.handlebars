@@ -1,8 +1,9 @@
-<li>
-    {{burger_name}}
-
-    <button class="change-status" data-id="{{id}}" data-devoured="{{devoured}}">
-        {{#if devoured}}Back on the Menu!{{else}}DEVOUR!!{{/if}}
-    </button>
-
-</li>
+<div class="row">
+    <div class="col-sm"> {{burger_name}}</div>
+    <div class="col-sm">
+        <button type="button" class="change-status btn btn-dark" data-id="{{id}}" data-devoured="{{devoured}}">
+            {{#if devoured}}Back on the Menu!{{else}}DEVOUR!!{{/if}}
+        </button>
+    </div>
+</div>
+<hr>

@@ -3,9 +3,9 @@ $(function() {
   $(".change-status").on("click", function(event) {
     var id = $(this).data("id");
     var devoured = $(this).data("devoured");
-
+    devoured = !devoured;
     var newStatus = {
-      devoured: true
+      devoured: devoured
     };
 
     // Send the PUT request.
@@ -13,7 +13,7 @@ $(function() {
       type: "PUT",
       data: newStatus
     }).then(function() {
-      console.log("changed status to", newStatus);
+      console.log("changed status to", devoured);
       // Reload the page to get the updated list
       location.reload();
     });
